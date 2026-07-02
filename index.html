@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div id="home-page" class="view-active">
+    <div id="home-page" class="view view-active">
         <div class="top-bar">
             <div class="top-links">
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -52,7 +52,7 @@
                 <div class="action-card"><i class="fa-solid fa-crane"></i><p>Movimentação de cargas</p></div>
                 <div class="action-card"><i class="fa-solid fa-gavel"></i><p>Licitações</p></div>
                 <div class="action-card"><i class="fa-solid fa-ship"></i><p>Operadores portuários</p></div>
-                
+
                 <div class="action-card card-destaque" id="btn-abrir-login">
                     <i class="fa-solid fa-bolt"></i>
                     <p>Agiliza SUAPE</p>
@@ -62,18 +62,18 @@
     </div>
 
 
-    <div id="login-page" class="view-hidden auth-background">
+    <div id="login-page" class="view view-hidden auth-background">
         <div class="auth-card" style="max-width: 400px;">
             <button class="btn-voltar-pequeno" id="btn-voltar-home-from-login"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
-            
+
             <h2 class="auth-title">Login</h2>
-            
+
             <form id="form-login">
                 <div class="input-icon-group">
                     <i class="fa-solid fa-user"></i>
                     <input type="text" id="login-cnpj" placeholder="CNPJ" required>
                 </div>
-                
+
                 <div class="input-icon-group">
                     <i class="fa-solid fa-lock"></i>
                     <input type="password" id="login-senha" placeholder="Senha" required>
@@ -87,17 +87,17 @@
             </form>
 
             <div class="text-center" style="margin-top: 20px;">
-                <span class="auth-text">Ainda não é cadastrado?</span> 
+                <span class="auth-text">Ainda não é cadastrado?</span>
                 <a href="#" class="auth-link bold" id="link-ir-cadastro">Clique aqui</a>
             </div>
         </div>
     </div>
 
 
-    <div id="cadastro-categoria-page" class="view-hidden auth-background">
+    <div id="cadastro-categoria-page" class="view view-hidden auth-background">
         <div class="auth-card" style="max-width: 800px;">
             <button class="btn-voltar-pequeno" id="btn-voltar-login-from-cat"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
-            
+
             <h2 class="auth-title" style="margin-bottom: 30px;">Selecione o tipo de cadastro</h2>
 
             <div class="category-grid">
@@ -111,14 +111,14 @@
             </div>
 
             <div class="text-center" style="margin-top: 30px;">
-                <span class="auth-text">Você já tem login?</span> 
+                <span class="auth-text">Você já tem login?</span>
                 <a href="#" class="auth-link bold" id="link-voltar-login">Clique aqui</a>
             </div>
         </div>
     </div>
 
 
-    <div id="agiliza-page" class="view-hidden">
+    <div id="agiliza-page" class="view view-hidden">
         <header class="agiliza-header">
             <div class="logo-text">AGILIZA SUAPE</div>
             <div class="header-divider"></div>
@@ -132,7 +132,7 @@
             <form id="cadastroForm">
                 <div class="form-section">
                     <div class="section-title">Dados da Empresa</div>
-                    
+
                     <label>Nome da Empresa:</label>
                     <input type="text" id="razaoSocial" placeholder="Razão Social" required>
 
@@ -142,8 +142,8 @@
 
                     <div class="grid-row">
                         <div><label>CEP:</label><input type="text" id="cep" placeholder="00000-000"></div>
-                        <div><label>Número:</label><input type="text"></div>
-                        <div><label>Complemento:</label><input type="text"></div>
+                        <div><label>Número:</label><input type="text" id="numero"></div>
+                        <div><label>Complemento:</label><input type="text" id="complemento"></div>
                     </div>
 
                     <label>Telefone de Contato:</label>
@@ -171,13 +171,13 @@
                 <div class="form-section">
                     <div class="section-title">Documentação Obrigatória</div>
                     <a href="#" class="btn-modelo">BAIXAR MODELOS DE DOCUMENTOS ANEXOS (.ZIP)</a>
-                    
+
                     <div class="doc-row">
                         <div style="flex: 2;">
                             <label>Carta de Apresentação de Anexo <span class="sub-label">(Conforme modelo da administração)</span></label>
                             <div class="file-input-container">
                                 <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                                <input type="file" style="display:none" onchange="updateFileName(this)" required>
+                                <input type="file" id="docCartaApresentacao" style="display:none" onchange="updateFileName(this)" required>
                                 <div class="file-name">Nenhum arquivo escolhido</div>
                             </div>
                         </div>
@@ -188,13 +188,13 @@
                             <label>Formulário da ANTAQ <span class="sub-label">(PDF)</span></label>
                             <div class="file-input-container">
                                 <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                                <input type="file" style="display:none" onchange="updateFileName(this)" required>
+                                <input type="file" id="docAntaq" style="display:none" onchange="updateFileName(this)" required>
                                 <div class="file-name">Nenhum arquivo escolhido</div>
                             </div>
                         </div>
                         <div style="flex: 1;">
                             <label>Data de Validade</label>
-                            <input type="date">
+                            <input type="date" id="docAntaqValidade">
                         </div>
                     </div>
 
@@ -203,13 +203,13 @@
                             <label>Autorização da ANP / Cópia de Autorização da ANTAQ <span class="sub-label">(PDF)</span></label>
                             <div class="file-input-container">
                                 <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                                <input type="file" style="display:none" onchange="updateFileName(this)">
+                                <input type="file" id="docAnp" style="display:none" onchange="updateFileName(this)">
                                 <div class="file-name">Nenhum arquivo escolhido</div>
                             </div>
                         </div>
                         <div style="flex: 1;">
                             <label>Data de Validade</label>
-                            <input type="date">
+                            <input type="date" id="docAnpValidade">
                         </div>
                     </div>
 
@@ -218,7 +218,7 @@
                             <label>Ato Constitutivo, Estatuto ou Contrato Social</label>
                             <div class="file-input-container">
                                 <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                                <input type="file" style="display:none" onchange="updateFileName(this)" required>
+                                <input type="file" id="docAtoConstitutivo" style="display:none" onchange="updateFileName(this)" required>
                                 <div class="file-name">Nenhum arquivo escolhido</div>
                             </div>
                         </div>
@@ -229,13 +229,13 @@
                             <label>Autorização Ambiental de Transporte de Produtos Perigosos (IBAMA)</label>
                             <div class="file-input-container">
                                 <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                                <input type="file" style="display:none" onchange="updateFileName(this)">
+                                <input type="file" id="docIbama" style="display:none" onchange="updateFileName(this)">
                                 <div class="file-name">Nenhum arquivo escolhido</div>
                             </div>
                         </div>
                         <div style="flex: 1;">
                             <label>Data de Validade</label>
-                            <input type="date">
+                            <input type="date" id="docIbamaValidade">
                         </div>
                     </div>
 
@@ -244,7 +244,7 @@
                             <label>Formulário de Solicitação de Serviço</label>
                             <div class="file-input-container">
                                 <div class="file-btn" onclick="this.nextElementSibling.click()">Escolher arquivo</div>
-                                <input type="file" style="display:none" onchange="updateFileName(this)" required>
+                                <input type="file" id="docFormularioServico" style="display:none" onchange="updateFileName(this)" required>
                                 <div class="file-name">Nenhum arquivo escolhido</div>
                             </div>
                         </div>
@@ -254,7 +254,7 @@
                 <div style="display: flex; gap: 15px; align-items: flex-start; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
                     <input type="checkbox" id="termos" style="margin-top: 5px; width: 18px; height: 18px;" required>
                     <label for="termos" style="font-weight: normal; color: #444; line-height: 1.4; margin-bottom: 0;">
-                        Declaro estar ciente das normas operacionais do <b>Complexo Industrial Portuário de Suape</b>. 
+                        Declaro estar ciente das normas operacionais do <b>Complexo Industrial Portuário de Suape</b>.
                         Em caso de incidentes, a empresa assume total responsabilidade pelos custos decorrentes de contenção, remediação ambiental e atendimento emergencial.
                     </label>
                 </div>
@@ -264,6 +264,230 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-</body> 
+
+    <div id="dashboard-page" class="view view-hidden">
+        <header class="agiliza-header">
+            <div class="logo-text">AGILIZA SUAPE</div>
+            <div class="header-divider"></div>
+            <div class="header-title">Painel da Empresa</div>
+        </header>
+        <div class="header-yellow-line"></div>
+
+        <div class="container-form dashboard-container">
+            <div class="dashboard-topbar">
+                <div>
+                    <h2 id="dashboard-empresa-nome">Empresa</h2>
+                    <span id="dashboard-empresa-cnpj" class="sub-label"></span>
+                </div>
+                <button class="btn-voltar" id="btn-sair-dashboard">SAIR</button>
+            </div>
+
+            <div class="dashboard-actions">
+                <button type="button" class="btn-suape" id="btn-nova-solicitacao">+ Nova Solicitação de Anuência</button>
+                <button type="button" class="btn-suape" id="btn-nova-apr">+ Nova APR</button>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">Minhas Solicitações de Anuência</div>
+                <div id="lista-solicitacoes" class="record-list"></div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">Minhas APRs</div>
+                <div id="lista-aprs" class="record-list"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="solicitacao-page" class="view view-hidden">
+        <header class="agiliza-header">
+            <div class="logo-text">AGILIZA SUAPE</div>
+            <div class="header-divider"></div>
+            <div class="header-title">Solicitação de Anuência para Retirada de Resíduos de Embarcação <span class="sub-label" style="color:#dbe6f7;">(Portaria nº 99/2025)</span></div>
+        </header>
+        <div class="header-yellow-line"></div>
+
+        <div class="container-form">
+            <button class="btn-voltar" id="btn-voltar-dashboard-from-solicitacao">&#8592; VOLTAR AO PAINEL</button>
+
+            <form id="form-solicitacao">
+                <div class="form-section">
+                    <div class="section-title">Dados da Solicitação</div>
+
+                    <label>Requerente: <span class="sub-label">(agência de navegação / agente protetor / proprietário / afretador da embarcação)</span></label>
+                    <input type="text" id="sol-requerente" required>
+
+                    <div class="grid-row-2">
+                        <div>
+                            <label>Responsável:</label>
+                            <input type="text" id="sol-responsavel" required>
+                        </div>
+                        <div>
+                            <label>Contato do responsável:</label>
+                            <input type="tel" id="sol-contato" placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+
+                    <label>Nome da embarcação / Nº IMO:</label>
+                    <input type="text" id="sol-embarcacao" required>
+
+                    <label>Tipo de navegação:</label>
+                    <div class="options-group">
+                        <label><input type="radio" name="sol-tipo-navegacao" value="cabotagem" required> Cabotagem</label>
+                        <label><input type="radio" name="sol-tipo-navegacao" value="longo_curso" required> Longo Curso</label>
+                    </div>
+
+                    <div class="grid-row-2">
+                        <div>
+                            <label>Tipologia dos resíduos:</label>
+                            <input type="text" id="sol-tipologia" required>
+                        </div>
+                        <div>
+                            <label>Quantidade de resíduos a retirar:</label>
+                            <input type="text" id="sol-quantidade" placeholder="Ex: 500 kg" required>
+                        </div>
+                    </div>
+
+                    <label>Berço de atracação:</label>
+                    <input type="text" id="sol-berco" required>
+
+                    <div class="grid-row-2">
+                        <div>
+                            <label>Início do serviço (data e hora):</label>
+                            <input type="datetime-local" id="sol-inicio" required>
+                            <div id="sol-inicio-aviso" class="field-warning" style="display:none;"></div>
+                        </div>
+                        <div>
+                            <label>Término do serviço (data e hora):</label>
+                            <input type="datetime-local" id="sol-termino" required>
+                        </div>
+                    </div>
+
+                    <label>Empresa prestadora do serviço:</label>
+                    <input type="text" id="sol-empresa-prestadora" readonly>
+
+                    <p class="sub-label">* O requerimento deve ser enviado com antecedência mínima de 36 horas para o e-mail: controleambiental@suape.pe.gov.br.</p>
+                </div>
+
+                <button type="submit" class="btn-cadastrar">ENVIAR SOLICITAÇÃO DE ANUÊNCIA</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="apr-page" class="view view-hidden">
+        <header class="agiliza-header">
+            <div class="logo-text">AGILIZA SUAPE</div>
+            <div class="header-divider"></div>
+            <div class="header-title">APR - Análise Preliminar de Riscos</div>
+        </header>
+        <div class="header-yellow-line"></div>
+
+        <div class="container-form">
+            <button class="btn-voltar" id="btn-voltar-dashboard-from-apr">&#8592; VOLTAR AO PAINEL</button>
+
+            <form id="form-apr">
+                <details class="reference-panel">
+                    <summary>Consultar Tabelas de Referência (Verso da APR)</summary>
+                    <div id="apr-referencia-conteudo"></div>
+                    <div style="display: flex; gap: 15px; align-items: flex-start; margin-top: 15px;">
+                        <input type="checkbox" id="apr-observacoes-ciencia" style="margin-top: 5px; width: 18px; height: 18px;" required>
+                        <label for="apr-observacoes-ciencia" style="font-weight: normal; color: #444; line-height: 1.4; margin-bottom: 0;">
+                            Declaro estar ciente das Observações Importantes acima.
+                        </label>
+                    </div>
+                </details>
+
+                <div class="form-section">
+                    <div class="section-title">Dados Gerais</div>
+
+                    <div class="grid-row-2">
+                        <div>
+                            <label>Contrato Nº:</label>
+                            <input type="text" id="apr-contrato" required>
+                        </div>
+                        <div>
+                            <label>Empresa:</label>
+                            <input type="text" id="apr-empresa" readonly>
+                        </div>
+                    </div>
+
+                    <label>Unidade Operacional:</label>
+                    <input type="text" id="apr-unidade">
+
+                    <div class="grid-row-2">
+                        <div>
+                            <label>Processo de Execução:</label>
+                            <input type="text" id="apr-processo" required>
+                        </div>
+                        <div>
+                            <label>Função:</label>
+                            <input type="text" id="apr-funcao" required>
+                        </div>
+                    </div>
+
+                    <div class="grid-row-2">
+                        <div>
+                            <label>Data de início da atividade:</label>
+                            <input type="date" id="apr-data-inicio" required>
+                        </div>
+                        <div>
+                            <label>Data final da atividade:</label>
+                            <input type="date" id="apr-data-final" required>
+                        </div>
+                    </div>
+
+                    <label>Número da APR/Revisão:</label>
+                    <input type="text" id="apr-numero-revisao">
+
+                    <label>Engenheiro / Técnico de Segurança Responsável <span class="sub-label">(CREA/Registro Nº)</span>:</label>
+                    <input type="text" id="apr-responsavel-tecnico" required>
+
+                    <label>Equipe de Colaboradores <span class="sub-label">(Nome e Empresa)</span>:</label>
+                    <textarea id="apr-equipe" rows="2"></textarea>
+
+                    <label>Descrição da Atividade:</label>
+                    <textarea id="apr-descricao" rows="3" required></textarea>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Etapas da Atividade</div>
+                    <div id="apr-etapas-container"></div>
+                    <button type="button" class="btn-adicionar-etapa" id="btn-add-etapa">+ Adicionar Etapa</button>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Assinaturas</div>
+                    <div class="grid-row-2">
+                        <div>
+                            <label>Assinatura da equipe da APR:</label>
+                            <input type="text" id="apr-assinatura-equipe" required>
+                        </div>
+                        <div>
+                            <label>Assinatura do responsável técnico:</label>
+                            <input type="text" id="apr-assinatura-responsavel" required>
+                        </div>
+                    </div>
+                    <label>Data <span class="sub-label">(Ipojuca, ___ de ___ de ____)</span>:</label>
+                    <input type="date" id="apr-data-assinatura" required>
+                </div>
+
+                <button type="submit" class="btn-cadastrar">ENVIAR APR</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/apr-data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/masks.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/page-home.js"></script>
+    <script src="js/page-login.js"></script>
+    <script src="js/page-cadastro.js"></script>
+    <script src="js/page-dashboard.js"></script>
+    <script src="js/page-solicitacao.js"></script>
+    <script src="js/page-apr.js"></script>
+    <script src="js/app.js"></script>
+</body>
 </html>
