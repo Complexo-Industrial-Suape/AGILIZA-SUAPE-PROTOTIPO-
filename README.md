@@ -1,14 +1,20 @@
 # Portal SUAPE & Agiliza SUAPE - Documentação Técnica
 
-Este projeto é um protótipo funcional de uma Single Page Application (SPA) desenvolvida para o Complexo Industrial Portuário de Suape. Ele simula o fluxo completo do programa **"Agiliza SUAPE"** para empresas prestadoras de serviços ambientais: cadastro da empresa, painel próprio, abertura de **Solicitações de Anuência para Retirada de Resíduos de Embarcação** (Portaria nº 99/2025) e preenchimento digital da **APR — Análise Preliminar de Riscos**, com cálculo automático de risco e criticidade.
+Protótipo funcional de uma SPA (Single Page Application) para o Complexo Industrial Portuário de Suape, cobrindo o fluxo completo do programa **Agiliza SUAPE** para empresas prestadoras de serviços ambientais:
 
-É 100% estático (HTML/CSS/JS puro, sem build step e sem backend), pensado para rodar direto no navegador ou hospedado no GitHub Pages.
+*   Cadastro da empresa
+*   Painel próprio da empresa
+*   **Solicitação de Anuência para Retirada de Resíduos de Embarcação** (Portaria nº 99/2025)
+*   **APR — Análise Preliminar de Riscos**, digital, com cálculo automático de risco e criticidade
+
+100% estático — HTML/CSS/JS puro, sem build step e sem backend. Roda direto no navegador ou hospedado no GitHub Pages.
 
 ## 🚀 Estrutura do Projeto
 
 ```
 index.html              Estrutura de todas as telas (SPA)
 style.css                Estilização visual e layout responsivo
+assets/                 Logos oficiais (SUAPE e Agiliza SUAPE)
 js/
   apr-data.js             Tabelas de referência da APR + cálculo de risco (sem DOM)
   storage.js               Persistência em localStorage (empresas, solicitações, APRs, sessão)
@@ -25,6 +31,12 @@ docs/referencia/          Documentos oficiais usados como base para os formulár
   APR FRENTE NOVA LOGO (1)(1).xls
   FOLHA VERSO ATUALIZADA (1)-1.pdf
   Solicitação - PORTARIA Nº 99_2025 (1)(1).docx
+docs/architecture/        Diagramas C4 (Mermaid) da arquitetura do sistema
+  c4-context.md
+  c4-containers.md
+  c4-components-agiliza.md
+  c4-deployment.md
+  c4-dynamic-nova-apr.md
 ```
 
 Os arquivos em `docs/referencia/` são só material de consulta (os documentos originais que inspiraram os campos e regras dos formulários digitais) — não são carregados pela aplicação em tempo de execução.
@@ -76,7 +88,14 @@ Digitaliza a frente e o verso do formulário oficial de APR:
 
 ## 4. Solicitação de Anuência (`js/page-solicitacao.js`)
 
-Reproduz o formulário da Portaria nº 99/2025 ("Solicitação de Anuência para Retirada de Resíduos de Embarcação"): requerente, responsável, embarcação/IMO, tipo de navegação, tipologia e quantidade de resíduos, berço de atracação, início/término do serviço e empresa prestadora.
+Reproduz o formulário da Portaria nº 99/2025 ("Solicitação de Anuência para Retirada de Resíduos de Embarcação"), com os campos:
+
+*   Requerente e responsável
+*   Embarcação / IMO
+*   Tipo de navegação, tipologia e quantidade de resíduos
+*   Berço de atracação
+*   Início e término do serviço
+*   Empresa prestadora
 
 **Regra de antecedência mínima de 36 horas**: o campo "Início do serviço" é validado ao vivo e no envio — se faltar menos de 36h a partir do momento atual, o formulário mostra quanto tempo falta e bloqueia o envio, refletindo a exigência do documento oficial de enviar a solicitação com essa antecedência.
 
@@ -84,7 +103,11 @@ Reproduz o formulário da Portaria nº 99/2025 ("Solicitação de Anuência para
 
 ## 5. Estilização (style.css)
 
-Segue o padrão institucional de SUAPE via variáveis CSS (`--suape-blue`, `--suape-yellow` etc.), reaproveitando os mesmos padrões de componente (`.form-section`, `.options-group`, `.doc-row`) também nas telas novas — painel (`.record-card`, `.status-badge`), etapas da APR (`.etapa-row`, `.criticidade-badge`) e painel de referência (`.reference-panel`, `.tabela-referencia`).
+Segue o padrão institucional de SUAPE via variáveis CSS (`--suape-blue`, `--suape-yellow` etc.). Os componentes originais (`.form-section`, `.options-group`, `.doc-row`) são reaproveitados nas telas novas:
+
+*   Painel: `.record-card`, `.status-badge`
+*   Etapas da APR: `.etapa-row`, `.criticidade-badge`
+*   Painel de referência: `.reference-panel`, `.tabela-referencia`
 
 ---
 
