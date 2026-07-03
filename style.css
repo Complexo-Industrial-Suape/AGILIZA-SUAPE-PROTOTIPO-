@@ -31,7 +31,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color:
 
 .main-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; color: white; }
 .logo-suape { font-size: 28px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
-.logo-suape i { color: var(--suape-yellow); font-size: 36px; }
+.logo-suape img { height: 44px; width: auto; }
 .nav-menu { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; font-size: 14px; font-weight: 500; }
 .nav-menu li { cursor: pointer; transition: color 0.3s; }
 .nav-menu li:hover { color: var(--suape-yellow); }
@@ -43,7 +43,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color:
 .action-card:hover { transform: translateY(-8px); background-color: #fff; }
 
 .card-destaque { background-color: var(--suape-blue); color: white; border: 2px solid var(--suape-yellow); }
-.card-destaque i { color: var(--suape-yellow); }
+.card-destaque img { width: 30px; height: 30px; object-fit: contain; margin-bottom: 10px; }
 .card-destaque:hover { background-color: var(--suape-dark-blue); color: white; }
 
 /* --- AUTENTICAÇÃO (LOGIN / CATEGORIA) --- */
@@ -90,7 +90,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color:
 
 /* --- FORMULÁRIO AGILIZA SUAPE (FINAL) --- */
 .agiliza-header { background-color: var(--suape-blue); padding: 25px 40px; display: flex; align-items: center; }
-.agiliza-header .logo-text { color: white; font-weight: 900; font-size: 24px; letter-spacing: 1px; }
+.agiliza-header .logo-text { color: white; font-weight: 900; font-size: 24px; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+.agiliza-header .logo-text img { height: 30px; width: auto; }
 .agiliza-header .header-divider { width: 2px; height: 28px; background-color: var(--suape-yellow); margin: 0 15px; }
 .agiliza-header .header-title { color: white; font-size: 18px; font-weight: 400; }
 .header-yellow-line { height: 6px; background-color: var(--suape-yellow); width: 100%; }
